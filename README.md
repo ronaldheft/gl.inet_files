@@ -1,4 +1,7 @@
 # Gl.iNet Router files and utilities
+
+Remember to add the file name to `/etc/sysupgrade.conf` if you want it to survive firmware upgrades.
+
 ## 4.3
 ### Wifi Toggle Button Settings for 4.3 devices
 
