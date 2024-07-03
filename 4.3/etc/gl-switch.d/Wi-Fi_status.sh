@@ -1,5 +1,8 @@
 #!/bin/sh
 
+#original https://forum.gl-inet.com/t/feature-request-side-button-to-toggle-wifi-on-off-on-dual-radio-devices/32427/5
+#source https://forum.gl-inet.com/t/feature-request-side-button-to-toggle-wifi-on-off-on-dual-radio-devices/32427/13
+
 # Default Settings  
 # File to save the wifi default status
 wifi_default_status_file="/etc/wifi_default_status"
