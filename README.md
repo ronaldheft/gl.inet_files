@@ -4,8 +4,6 @@
 
 https://github.com/mertonv/gl.inet_files/tree/main/4.3/etc/gl-switch.d
 
-I've added the files that worked for me to [**my github**](https://github.com/mertonv/gl.inet_files/tree/main/4.3/etc/gl-switch.d)
-
 You can run these instructions thru `ssh` to download and set them up.
 
 ```
@@ -40,8 +38,6 @@ If you don't get any error outputs in the `ssh` terminal and you see the radios 
 ### Wifi Toggle Button Settings for 4.5 devices
 
 https://github.com/mertonv/gl.inet_files/tree/main/4.5/etc/gl-switch.d
-
-I've added the files that worked for me to [**my github**](https://github.com/mertonv/gl.inet_files/tree/main/4.5/etc/gl-switch.d)
 
 You can run these instructions thru `ssh` to download and set them up.
 
