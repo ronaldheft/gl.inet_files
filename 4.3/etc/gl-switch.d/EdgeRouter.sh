@@ -8,10 +8,15 @@
 action=$1
 
 if [ "$action" = "on" ]; then
+        #Enable WAN DHCP
+        uci set network.wan.proto='dhcp'
+        uci commit network
+
         #Disable Drop-in Gateway
         uci set edgerouter.global.enabled='0'
+        uci commit edgerouter
         logger -p notice -t edgerouter-toggle "Drop-in Gateway OFF"
-        
+               
         #Enable Repeater
         uci set repeater.@main[0].disabled='0'
         uci commit repeater
@@ -21,7 +26,7 @@ if [ "$action" = "on" ]; then
         #Enable Radios
         uci set wireless.default_radio0.disabled='0'
         uci set wireless.default_radio1.disabled='0'
-        uci set wireless.sta.disabled='1'
+        uci set wireless.sta.disabled='0'
         uci commit wireless
         wifi reload
         logger -p notice -t wifi-toggle "Radios Enabled"
@@ -44,6 +49,7 @@ if [ "$action" = "off" ]; then
         
         #Enable Drop-in Gateway
         uci set edgerouter.global.enabled='1'
+        uci commit edgerouter
         logger -p notice -t edgerouter-toggle "Drop-in Gateway ON"
 
 fi
