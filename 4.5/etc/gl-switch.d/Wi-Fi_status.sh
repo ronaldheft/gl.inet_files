@@ -17,26 +17,26 @@ action=$1
 if [ "$action" = "off" ]; then
 
 	# Get the default status before disabling
-    wifi2g_default_disabled=$(uci get wireless.wifi2g.disabled)
-    wifi5g_default_disabled=$(uci get wireless.wifi5g.disabled)
+    wifi2g_default_disabled=$(uci get wireless.guest2g.disabled)
+    wifi5g_default_disabled=$(uci get wireless.guest5g.disabled)
 	
 	# Save the default status to the wifi_default_status_file
 	echo "$wifi2g_default_disabled $wifi5g_default_disabled" > "$wifi_default_status_file"
 	
 	# if wifi2g is enabled then disable it
 	if [ "$wifi2g_default_disabled" -eq 0 ]; then
-        uci set wireless.wifi2g.disabled='1'
+        uci set wireless.guest2g.disabled='1'
         uci commit wireless
         wifi reload
-        logger -p notice -t wifi-toggle "wifi2g disabled"
+        logger -p notice -t wifi-toggle "guest2g disabled"
     fi
 	
 	# if wifi5g is enabled then disable it
     if [ "$wifi5g_default_disabled" -eq 0 ]; then
-        uci set wireless.wifi5g.disabled='1'
+        uci set wireless.guest5g.disabled='1'
         uci commit wireless
         wifi reload
-        logger -p notice -t wifi-toggle "wifi5g disabled"
+        logger -p notice -t wifi-toggle "guest5g disabled"
     fi
 fi
 
@@ -50,18 +50,18 @@ if [ "$action" = "on" ]; then
 	
 	# if wifi2g is enabled by default then enable it
 	if [ "$wifi2g_default_disabled" -eq 0 ]; then
-        uci set wireless.wifi2g.disabled='0'
+        uci set wireless.guest2g.disabled='0'
         uci commit wireless
         wifi reload
-        logger -p notice -t wifi-toggle "wifi2g enabled"
+        logger -p notice -t wifi-toggle "guest2g enabled"
     fi
 	
 	# if wifi5g is enabled by default then enable it
     if [ "$wifi5g_default_disabled" -eq 0 ]; then
-        uci set wireless.wifi5g.disabled='0'
+        uci set wireless.guest5g.disabled='0'
         uci commit wireless
         wifi reload
-        logger -p notice -t wifi-toggle "wifi5g enabled"
+        logger -p notice -t wifi-toggle "guest5g enabled"
     fi
 fi
 
