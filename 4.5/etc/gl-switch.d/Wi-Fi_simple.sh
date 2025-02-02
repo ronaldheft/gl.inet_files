@@ -8,19 +8,19 @@
 action=$1
 
 if [ "$action" = "on" ]; then
-        uci set wireless.wifi5g.disabled='0'
-        uci set wireless.wifi2g.disabled='0'
+        uci set wireless.guest5g.disabled='0'
+        uci set wireless.guest2g.disabled='0'
         uci commit wireless
         wifi reload
-        logger -p notice -t wifi-toggle "radios enabled"
+        logger -p notice -t wifi-toggle "radios for guest enabled"
 fi
 
 if [ "$action" = "off" ]; then
-        uci set wireless.wifi5g.disabled='1'
-        uci set wireless.wifi2g.disabled='1'
+        uci set wireless.guest5g.disabled='1'
+        uci set wireless.guest2g.disabled='1'
         uci commit wireless
         wifi reload
-        logger -p notice -t wifi-toggle "radios disabled"
+        logger -p notice -t wifi-toggle "radios for guest disabled"
 fi
 
 exit 0
